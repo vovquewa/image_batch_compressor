@@ -57,15 +57,15 @@ Select "Use Git from Git Bash only"
 
 Choose "Checkout as-is, commit Unix-style line endings"
 
-### Project Installation
+### Project Installation (for Windows use git-bash)
 
-1. Go to project dir
+1. Go to project dir 
 
 ```bash
 cd image_batch_compressor
 ```
 
-1. Clone project (for Windows use git-bash)
+1. Clone project 
 
 ```bash
 git clone https://github.com/vovquewa/image_batch_compressor.git
