@@ -59,13 +59,13 @@ Choose "Checkout as-is, commit Unix-style line endings"
 
 ### Project Installation (for Windows use git-bash)
 
-1. Go to project dir 
+1. Go to project dir
 
 ```bash
 cd image_batch_compressor
 ```
 
-1. Clone project 
+1. Clone project
 
 ```bash
 git clone https://github.com/vovquewa/image_batch_compressor.git
@@ -78,7 +78,10 @@ python -m venv venv
 ```
 
 2. Install required dependencies:
-   pip install -r requirements.txt
+
+```bash
+pip install -r requirements.txt
+```
 
 3. Setup .env
    use .env.example
