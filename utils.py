@@ -10,7 +10,12 @@ from pathlib import Path
 from PIL import Image
 from tqdm import tqdm
 
-from constants import IMAGE_PIX_SIZE, IMAGE_QUALITY, COMPRESSED_DIR_ENDING, IMAGE_FORMAT_LIST
+from constants import (
+    IMAGE_PIX_SIZE,
+    IMAGE_QUALITY,
+    COMPRESSED_DIR_ENDING,
+    IMAGE_FORMAT_LIST,
+)
 from config import log_config
 
 
@@ -94,10 +99,14 @@ def compress_directory(directory):
         result_list = get_image_files(compressed_dir)
         images_to_compress = compare_lists(source_list, result_list)
         for image in tqdm(images_to_compress, desc="Compressing images"):
-            img = compress_image(os.path.join(directory, image))
-            image_path = os.path.join(compressed_dir, image)
-            save_image(img, image_path)
-            log_config.result_logger.info("Compressed image: %s", image_path)
+            try:
+                img = compress_image(os.path.join(directory, image))
+                image_path = os.path.join(compressed_dir, image)
+                save_image(img, image_path)
+                log_config.result_logger.info("Compressed image: %s", image_path)
+            except OSError as e:
+                logging.error("Error processing image %s: %s", image, e)
+                continue
 
 
 def get_image_files(directory):

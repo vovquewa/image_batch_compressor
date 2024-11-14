@@ -9,27 +9,24 @@ Image Batch Compressor is a Python utility that allows you to efficiently compre
 - Batch processing of multiple images
 - Maintains aspect ratio during compression
 - Uses high-quality Lanczos resampling for optimal results
-- Supports common image formats (JPEG, PNG, etc.)
-- Simple command-line interface
+- Supports common image formats: JPEG, PNG
 
 ## Requirements
 
-- Python 3.12.2
+- Python 3.12
 - load-dotenv==0.1.0
 - pillow==11.0.0
 - python-dotenv==1.0.1
 - tqdm==4.67.0
 
-## Installation
+## Installation Windows
 
 ### Install Python
 
 1. Download Python from [python.org](https://www.python.org/downloads/)
 2. During installation, make sure to check "Add Python to PATH"
 
-### Install pip (if not already installed)
-
-#### Windows:
+### Install pip
 
 1. Download get-pip.py:
 
@@ -45,7 +42,7 @@ python get-pip.py
 
 ### Install Git Bash (Windows)
 
-Download Git for Windows from git-scm.com
+[Download](https://gitforwindows.org) Git for Windows
 
 Run the installer
 
@@ -59,10 +56,10 @@ Choose "Checkout as-is, commit Unix-style line endings"
 
 ### Project Installation (for Windows use git-bash)
 
-1. Go to project dir
+1. Go to project root dir
 
 ```bash
-cd image_batch_compressor
+cd <path_where_project_will_be_installed>
 ```
 
 1. Clone project
@@ -71,12 +68,19 @@ cd image_batch_compressor
 git clone https://github.com/vovquewa/image_batch_compressor.git
 ```
 
+1. Go to project dir
+```bash
+cd image_batch_compressor
+```
 2. Create virtual environment
 
 ```bash
 python -m venv venv
 ```
-
+2. Activate venv
+```bash
+source venv/Scripts/activate
+```
 2. Install required dependencies:
 
 ```bash
@@ -84,7 +88,11 @@ pip install -r requirements.txt
 ```
 
 3. Setup .env
-   use .env.example
+Use .env.example
+```
+IMAGE_FILES_DIRECTORY=<path_to_dir>
+LOGS_DIR=<path_to_log_dir>
+```
 
 ## Usage
 

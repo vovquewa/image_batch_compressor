@@ -1,4 +1,7 @@
 share/
+Storage/
+image_batch_compressor_logs/
+logs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
