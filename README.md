@@ -69,18 +69,23 @@ git clone https://github.com/vovquewa/image_batch_compressor.git
 ```
 
 1. Go to project dir
+
 ```bash
 cd image_batch_compressor
 ```
+
 2. Create virtual environment
 
 ```bash
 python -m venv venv
 ```
+
 2. Activate venv
+
 ```bash
 source venv/Scripts/activate
 ```
+
 2. Install required dependencies:
 
 ```bash
@@ -88,10 +93,17 @@ pip install -r requirements.txt
 ```
 
 3. Setup .env
-Use .env.example
+   Use .env.example
+
 ```
 IMAGE_FILES_DIRECTORY=<path_to_dir>
 LOGS_DIR=<path_to_log_dir>
+```
+
+### Project update
+
+```bash
+git pull
 ```
 
 ## Usage

@@ -5,7 +5,7 @@ Utils for project
 import os
 import logging
 
-from pathlib import Path
+from pathlib import PosixPath
 
 from PIL import Image
 from tqdm import tqdm
@@ -67,7 +67,7 @@ def save_image(
         os.utime(file_path, (original_stat.st_atime, original_stat.st_mtime))
 
 
-def check_and_create_compressed_directory(directory: Path) -> Path:
+def check_and_create_compressed_directory(directory: PosixPath) -> PosixPath:
     """
     Check if a directory exists and create it if it doesn't.
 
@@ -85,7 +85,7 @@ def check_and_create_compressed_directory(directory: Path) -> Path:
         return compressed_dir
 
 
-def compress_directory(directory):
+def compress_directory(directory: PosixPath):
     """
     Get a list of files to compress in a directory.
 
@@ -98,7 +98,9 @@ def compress_directory(directory):
         compressed_dir = check_and_create_compressed_directory(directory)
         result_list = get_image_files(compressed_dir)
         images_to_compress = compare_lists(source_list, result_list)
-        for image in tqdm(images_to_compress, desc="Compressing images"):
+        for image in tqdm(
+            images_to_compress, desc=f"Compressing images: {directory.parts[-1]}"
+        ):
             try:
                 img = compress_image(os.path.join(directory, image))
                 image_path = os.path.join(compressed_dir, image)
