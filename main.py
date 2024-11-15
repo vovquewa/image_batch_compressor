@@ -5,13 +5,13 @@ mass image convertor from folder
 
 import os
 import logging
+import sys
 
 
 from tqdm import tqdm
-
+from utils import compress_directory
 from config import configure_logging
 from constants import IMAGE_FILES_DIRECTORY, COMPRESSED_DIR_ENDING
-from utils import compress_directory
 
 
 def main(directory=IMAGE_FILES_DIRECTORY):
@@ -21,11 +21,15 @@ def main(directory=IMAGE_FILES_DIRECTORY):
     :param directory: Path to the directory containing directories to compress
     """
     configure_logging()
-    category_directories = [
-        directory.joinpath(d)
-        for d in os.listdir(directory)
-        if os.path.isdir(os.path.join(directory, d))
-    ]
+    try:
+        category_directories = [
+            directory.joinpath(d)
+            for d in os.listdir(directory)
+            if os.path.isdir(os.path.join(directory, d))
+        ]
+    except FileNotFoundError as e:
+        logging.error("Directory not found: %s", e)
+        sys.exit(1)
     for category_directory in tqdm(
         category_directories, desc="Compressing category directories"
     ):

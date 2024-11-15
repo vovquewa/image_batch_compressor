@@ -17,6 +17,7 @@ from constants import (
     IMAGE_FORMAT_LIST,
 )
 from config import log_config
+import sys
 
 
 def compress_image(file_path: str, max_pixels: int = IMAGE_PIX_SIZE) -> Image.Image:
@@ -139,3 +140,6 @@ def compare_lists(source_list, result_list):
     files_to_compress = [file for file in source_list if file not in result_list]
     logging.info("Files to compress: %s", files_to_compress)
     return files_to_compress
+
+
+

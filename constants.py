@@ -6,7 +6,9 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+from env_utils import check_env_file
 
+check_env_file()
 load_dotenv()
 
 IMAGE_PIX_SIZE = 250000
