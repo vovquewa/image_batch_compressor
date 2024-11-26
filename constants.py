@@ -13,8 +13,8 @@ load_dotenv()
 
 IMAGE_PIX_SIZE = 250000
 IMAGE_QUALITY = 70
-MAX_BYTES = 10**6
-BACKUP_COUNT = 2
+MAX_BYTES = 10**7
+BACKUP_COUNT = 10
 COMPRESSED_DIR_ENDING = "_compressed"
 IMAGE_FORMAT_LIST = (".jpg", ".jpeg", ".png")
 BASE_DIR = Path(__file__).resolve().parent
